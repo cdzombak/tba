@@ -46,7 +46,7 @@
 		function calc_tba() {
 			var a = opts.k / ( (tweet_count == 0 ? 1 : tweet_count) / 48);
 			a = a.toFixed(opts.precision);
-			console.log(a);
+			opts.callback(a);
 		}
 		
 		function json_callback(result) {
