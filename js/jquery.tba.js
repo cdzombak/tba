@@ -7,9 +7,8 @@
  * This is alpha-quality code.
  *
  * TODO:
- *   - make timespan configurable
  *   - error handling
- *   - doc thid code + readme
+ *   - document this code + readme
  *   - licensing
  */
 
@@ -20,7 +19,8 @@
 			callback:  function(a) {},
 			username:  ["cdzombak"], // [string]
 			k:         0.75,         // [float]
-			precision: 2             // [int]
+			precision: 2,            // [int]
+			days:      2             // [int]
 		}; if(s) $.extend(opts, s);
 		
 		var tweet_count = 0;
@@ -44,7 +44,7 @@
 		}
 		
 		function calc_tba() {
-			var a = opts.k / ( (tweet_count == 0 ? 1 : tweet_count) / 48);
+			var a = opts.k / ( (tweet_count == 0 ? 1 : tweet_count) / (opts.days*24));
 			a = a.toFixed(opts.precision);
 			opts.callback(a);
 		}
@@ -55,7 +55,7 @@
 			for (i=0; i<result.length; i++) {
 				tweet_date = get_date(result[i].created_at);
 				// 2 days * 24 hours/day * 3600 seconds/hr * 1000 ms/sec
-				if ( (now.getTime() - tweet_date.getTime()) < (2 * 24 * 3600 * 1000) ) {
+				if ( (now.getTime() - tweet_date.getTime()) < (opts.days * 24 * 3600 * 1000) ) {
 					tweet_count++;
 				} else {
 					hit_boundary = true;
