@@ -4,12 +4,13 @@
  * Twitter Busyness Average PHP function
  * by Chris Dzombak <http://chris.dzombak.name>
  * 
- * http://chris.dzombak.name/blog/2011/04/twitter-busyness-average
+ * https://github.com/cdzombak/tba
  *
- * This is alpha-quality code.
+ * This is alpha-quality code; not suitable for real production use.
+ * See github.com/cdzombak/tba for details.
  *
  * TODO:
- *   - document this code + readme
+ *   - document this code
  *   - licensing
  */
  
@@ -27,7 +28,7 @@
   *
   * Returns a float.
   */
-function tba($username='cdzombak', $k=0.75, $days=2) {
+function tba($username='cdzombak', $k=0.9, $days=2) {
 	$now = time();
 	$current_page = 1;
 	

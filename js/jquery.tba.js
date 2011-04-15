@@ -2,13 +2,14 @@
  * Twitter Busyness Average jQuery plugin
  * by Chris Dzombak <http://chris.dzombak.name>
  * 
- * http://chris.dzombak.name/blog/2011/04/twitter-busyness-average
+ * https://github.com/cdzombak/tba
  *
- * This is alpha-quality code.
+ * This is alpha-quality code; not suitable for real production use.
+ * See github.com/cdzombak/tba for details.
  *
  * TODO:
  *   - error handling
- *   - document this code + readme
+ *   - document this code
  *   - licensing
  */
 
@@ -18,7 +19,7 @@
 		var opts = {
 			callback:  function(a) {},
 			username:  ["cdzombak"], // [string]
-			k:         0.75,         // [float]
+			k:         0.9,         // [float]
 			precision: 2,            // [int]
 			days:      2             // [int]
 		}; if(s) $.extend(opts, s);
